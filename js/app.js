@@ -1,7 +1,41 @@
 function englishToPigLagin(word) {
-  //let wordArr = str.split(' ');
+  if (word.split(' ')[0] === '') {
+    console.log(`Don't start with an empty space, please!`);
+    return;
+  }
+
+  if (word.split(' ').length > 1) {
+    console.log('One word at a time, please!');
+    return;
+  }
 
   let charArr = [...word];
+  let forbiddenChars = [
+    ',',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '0',
+    '-',
+    '*',
+    '+',
+    '/',
+    '(',
+    ')',
+    '[',
+    ']',
+    ':',
+  ];
+  if (forbiddenChars.includes(charArr[0])) {
+    console.log('Start with a letter, please!');
+    return;
+  }
 
   // first char is vowel
   if (['a', 'e', 'i', 'o', 'u'].includes(charArr[0].toLowerCase())) {
@@ -25,5 +59,3 @@ function englishToPigLagin(word) {
     return charArr.join('');
   }
 }
-
-console.log(englishToPigLagin('sky'));
