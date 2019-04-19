@@ -1,13 +1,13 @@
+englishToPigLagin('sdfs sdfsdf sldkjfls');
+
 function englishToPigLagin(word) {
   if (typeof word !== 'string') {
     console.log('Must be a string!');
     return;
   }
 
-  if (word.split(' ')[0] === '') {
-    console.log(`Don't start with an empty space, please!`);
-    return;
-  }
+  // trim potential leading spaces
+  word = word.trim();
 
   if (word.split(' ').length > 1) {
     console.log('One word at a time, please!');
@@ -72,11 +72,8 @@ function pigLatinToEnglish(word) {
     return;
   }
 
-  // require no leading space
-  if (word.split(' ')[0] === '') {
-    console.log(`Don't start with an empty space, please!`);
-    return;
-  }
+  // trim potential leading spaces
+  word = word.trim();
 
   // require single word
   if (word.split(' ').length > 1) {
